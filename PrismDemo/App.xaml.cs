@@ -1,4 +1,5 @@
 ﻿using Prism.Unity;
+using PrismDemo.Views;
 
 namespace PrismDemo
 {
@@ -10,7 +11,7 @@ namespace PrismDemo
         {
             InitializeComponent();
 
-            MainPage = new PrismDemoPage();
+            NavigationService.NavigateAsync("PrismDemoPage");
         }
         protected override void OnSleep()
         {
@@ -22,7 +23,8 @@ namespace PrismDemo
         }
         protected override void RegisterTypes()
         {
-
+            Container.RegisterTypeForNavigation<PrismDemoPage>();
+            Container.RegisterTypeForNavigation<SecondPage>();
         }
 
         protected override void OnResume()
